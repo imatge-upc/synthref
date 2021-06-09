@@ -1,17 +1,23 @@
-# Sythref
-SynthRef: Generation of Synthetic Referring Expressions for Object Segmentation
+# SynthRef: Generation of Synthetic Referring Expressions for Object Segmentation
 
-## Dependencies
+### Updates
 
+- [X] Upload SynthRef-YouTube-VIS dataset
+- [X] Upload pre-trained scene graph generation model with attribute head detection
+- [ ] TODO: Upload code for generating SynthRef-YouTube-VIS dataset
+- [ ] TODO: Provide PyTorch dataloader for running [RefVOS model] with SynthRef-YouTube-VIS dataset 
+- [ ] TODO: Provide weights of best models trained with SynthRef-YouTube-VIS dataset
+
+[RefVOS model]: https://github.com/miriambellver/refvos
 
 ## Datasets
 
 ### 1. YouTube-VIS
 
 In this work we used SynthRef method to generate synthetic referring expressions
-for the YouTube-VIS training dataset [[1]](#1).
+for the training set of YouTube-VIS dataset [[1]](#1).
 
-YouTube-VIS training dataset can be downloaded [here].
+YouTube-VIS dataset can be downloaded [here].
 
 [here]: https://youtube-vos.org/dataset/vis/
 
@@ -21,25 +27,34 @@ YouTube-VIS training dataset can be downloaded [here].
 ![alt text](images/SynthRef_Overview.png "SynthRef Overview")
 
 SynthRef's referring expressions include attributes for target objects, which are 
-predicted by the model of [Unbiased Scene Graph Generation from Biased Training], a
+predicted by the model of [Unbiased Scene Graph Generation from Biased Training] [[3]](#3), a
 scence graph generation model base on Faster R-CNN. 
 
-As we used this model for predicting attributes for the objects in YouTube-VIS, you
-can use this model on any other dataset.
+Similarly to our work, where we used this model for predicting attributes for the objects in YouTube-VIS, this model 
+can be used to predict attributes on any image/video dataset. Please refer to these [guidelines] on how to 
+detect scene graphs (including attributes of objects) for your dataset.
+
+[guidelines]: https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch#SGDet-on-custom-images
 
 In our paper we only take advantage of the detected attributes but we encourage the community to explore also
 the scene graph relationships for the generation of synthetic referring expressions.
 
 ## SynthRef-YouTube-VIS Dataset
 
+Our dataset with synthetic referring expressions for YouTube-VIS training set is called SynthRef-YouTube-VIS.
+It can be found in the data/ folder 
+
 
 [Unbiased Scene Graph Generation from Biased Training]: https://github.com/KaihuaTang/Scene-Graph-Benchmark.pytorch
+
 ## Experiments
 
 The model used in our experiments is [RefVOS] [[2]](#2) 
 
-We provide the Dataloader python file which can be used in order to train RefVOS 
+We will provide the Dataloader python file which can be used in order to train RefVOS 
 with SynthRef-YouTube-VIS dataset.
+
+We will also upload the weights of the best RefVOS models trained with SynthRef-YouTube-VIS.
 
 [RefVOS]: https://arxiv.org/abs/2010.00263
 ## References
@@ -51,4 +66,9 @@ In Proceedings of the IEEE International Conference on Computer Vision, pages 51
 <a id="2">[2]</a>
 Refvos: A closer look at referring expressions for video object segmentation (2020).
 Miriam Bellver, Carles Ventura, Carina Silberer, Ioannis Kazakos, Jordi Torres, and Xavier Giro-i Nieto.
+arXiv preprint arXiv:2010.00263
+
+<a id="3">[3]</a>
+Unbiased Scene Graph Generation from Biased Training (2020).
+Kaihua Tang, Yulei Niu, Jianqiang Huang, Jiaxin Shi, Hanwang Zhang.
 arXiv preprint arXiv:2010.00263
