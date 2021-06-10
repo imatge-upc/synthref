@@ -53,7 +53,7 @@ Our dataset with synthetic referring expressions for YouTube-VIS training set is
 It can be found in the **data/** folder in .csv format.
 
 The video_id and annotation_id columns of the dataset correspond to the video and annotation IDs of the
-"train_meta.json" file of the YouTube-VIS dataset, which you have to download from
+"train.json" file of the YouTube-VIS dataset, which you have to download from
 the link provided [here].
 
 
